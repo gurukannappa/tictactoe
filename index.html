@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Sample Web page</title>
+<script src="/socket.io/socket.io.js"></script>
+<link rel="stylesheet" type="text/css" href="tictacstyle.css">
+</head>
+<body onload=somefunction()>
+	<div class="title-bar">
+		<div class="title-text">
+			<h4>Tic Tac Toe Game</h4>
+		</div>
+		<div style="clear: both"></div>
+	</div>
+    <div class="control-panel">
+    Player1 :
+    <input type="button" id="player1" value="X" style="height:10px; width:50px;"/>
+    <br>
+    Player2 : 
+    <input type="button" id="player2" value="O" style="height:10px; width:50px;"/>
+    
+    <input type="button" id="reset" value="Play Again" style="height:10px; width:90px;"/>
+    <br>
+    Your Choice:<p id="game_choice"></p>
+
+    </div>
+    <div class="game-panel">
+        <table border=1 width="30%"; height="40%">
+            <tr>
+                <td id="r0c0" name="cell"><img id="i00" src="blank.jpg" /></td>
+                <td id="r0c1" name="cell"><img id="i01" src="blank.jpg" /></td>
+                <td id="r0c2" name="cell"><img id="i02" src="blank.jpg" /></td>
+            </tr>
+            <tr>
+                <td id="r1c0" name="cell"><img id="i10" src="blank.jpg" /></td>
+                <td id="r1c1" name="cell"><img id="i11" src="blank.jpg" /></td>
+                <td id="r1c2" name="cell"><img id="i12" src="blank.jpg" /></td>
+            </tr>
+            <tr>
+                <td id="r2c0" name="cell"><img id="i20" src="blank.jpg" /></td>
+                <td id="r2c1" name="cell"><img id="i21" src="blank.jpg" /></td>
+                <td id="r2c2" name="cell"><img id="i22" src="blank.jpg" /></td>
+            </tr>
+        </table>
+        <h5>Message centre:<br></h5>
+        <p id="message_centre"> </p>
+   	</div>
+<script>
+  
+
+</script>
+<script type="text/javascript" src="myscript.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+.title-bar
+{
+	width: 100%;
+	height: 10%;
+	background-color: LIGHTGREEN;
+}
+
+.title-text
+{
+	color: blue;
+	line-height: 30px;
+	text-align: center;
+}
+
+.control-panel
+{
+	width: 10%;
+	height: 100%;
+	background-color: PINK;
+	text-align: center;
+	float: left;
+}
+
+.game-panel
+{
+	width: 70%;
+	height: 100%;
+	background-color: LIGHTBLUE;
+	float: left;
+}
+
+.game-panel table 
+{
+	float: left;
+}
+
+
+.game-panel p
+{
+	font-size: 30px;
+}
