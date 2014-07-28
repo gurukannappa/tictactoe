@@ -52,11 +52,18 @@ io.on('connection', function(socket){
 
   });
 
+  socket.on('player_names',function(){
+
+
+
+  });
+
 	socket.on('playerx',function(name,turn,room_n){
 		if (turn == "X")
     	{
     		image_name = "ex.png";
     		current_turn = "O";
+        player_name = "";
     	}
    	 	if (turn == "O")
     	{

@@ -6,7 +6,7 @@ var tictactoe = new Array(9);
 var wincomb = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 var socket = io();
 var room_name = "",first_time=true;
-
+var user_name,p1state=false,p2state=false;
 filled = new Array(3);
 for (var i = 0; i < 3; i++)
 {
@@ -83,18 +83,28 @@ var sum = 0;
 function player_one()
 {
 	turn = "X";
+	var turn_image = document.createElement("IMG");
+	turn_image.setAttribute("src","ex.png");
+    turn_image.setAttribute("width","50px");
+    turn_image.setAttribute("height","50px");
+    var old = document.getElementById("imgchild");
 	play1.disabled = true;
 	play2.disabled = true;
-	user_choice.innerHTML = "X";
+	user_choice.replaceChild(turn_image,old);
   socket.emit('init_choice', "X", true,room_name);
 }
 
 function player_two()
 {
 	turn = "O";
+	var turn_image = document.createElement("IMG");
+	turn_image.setAttribute("src","o.png");
+    turn_image.setAttribute("width","50px");
+    turn_image.setAttribute("height","50px");
+    var old = document.getElementById("imgchild");
 	play2.disabled = true;
 	play1.disabled = true;
-	user_choice.innerHTML = "O";
+	user_choice.replaceChild(turn_image,old);
 	socket.emit('init_choice', "O", true,room_name);
 
 }
@@ -105,10 +115,26 @@ function refreshpage()
 
 }
 
+function user()
+{
+	user_name.value = "";
+}
+
+function fun_key(evt)
+{
+	if(event.keyCode == 13)
+	{
+	user_name.disabled = true;
+	play1.disabled = p1state;
+	play2.disabled = p2state;
+	socket.emit('player_names',user_name.value);
+	}
+}
+
 function somefunction()
 {
-	msg = document.getElementById("message_centre");
-	user_choice =  document.getElementById("game_choice");
+	msg = document.getElementById("message-center");
+	user_choice =  document.getElementById("game-choice");
 	list = document.getElementsByName("cell");
 	for (i=0;i<9;i++)
 	{
@@ -119,16 +145,22 @@ function somefunction()
 	play2 = document.getElementById("player2");
 	play1.addEventListener("click",player_one);
 	play2.addEventListener("click",player_two);
+	play1.disabled = true;
+	play2.disabled = true;
+	user_name =	document.getElementById("name_box");
+	user_name.addEventListener("click",user);
 	document.getElementById("reset").addEventListener("click",refreshpage);
 	
     socket.on('init_choice_reply',function(choice,room_name){
 
     	if (choice == "X")
     	{
+    		p1state = true;
     		play1.disabled = true;
     	}
     	if  (choice == "O")
     	{
+    		p2state = true;
     		play2.disabled = true;
     	}
     	game_start = true;
