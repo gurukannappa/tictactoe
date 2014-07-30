@@ -10,7 +10,6 @@ var counter= 0;
 var room = [];
 var sock_id = [];
 var i=0;j=0,k=0;
-
 app.get('/', function(req, res){
   res.sendfile('index.html');
 });
@@ -19,8 +18,6 @@ for(i=0;i<20;i++)
 {
   room[i] = "room"+i;
 }
-
-
 io.on('connection', function(socket){
   var private_roomname ="";
 	counter ++;
@@ -36,7 +33,7 @@ io.on('connection', function(socket){
    if (counter == 2)
    {
     io.to(room[k]).emit('join_room',room[k]);
-    k++;
+        k++;
     counter = 0;
    }
   }
@@ -52,10 +49,25 @@ io.on('connection', function(socket){
 
   });
 
-  socket.on('player_names',function(){
+  socket.on('player1_stats',function(player_obj,room){
 
+    io.to(room).emit('player_one_panel',player_obj);
 
+  });
 
+  socket.on('player2_stats',function(player_obj,room){
+
+    io.to(room).emit('player_two_panel',player_obj);
+
+  });
+
+  socket.on('player_one_panel',function(obj)
+    {
+      io.to(room_n).emit('init_choice_reply',msg, bool_val);
+    });
+
+  socket.on('game_reset',function(room){
+    io.to(room).emit('game_reset_reply');
   });
 
 	socket.on('playerx',function(name,turn,room_n){

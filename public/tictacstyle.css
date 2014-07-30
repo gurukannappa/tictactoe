@@ -25,14 +25,14 @@
 .message-box
 {
 	width: 100%;
-	background-color: red;
+	/*background-color: red;*/
 	height: 20%;
 }
 
 .middle-panel
 {
 	margin-top: 1%;
-	background-color: black;
+	/*background-color: black;*/
 	width: 100%;
 }
 
@@ -41,14 +41,14 @@
 	width: 20%;
 	text-align: center;
 	float: left;
-	background-color: LIGHTGREEN;
+	/*background-color: LIGHTGREEN;*/
 }
 
 .game-panel
 {
 	float: left;
 	width: 30%;
-	background-color: LIGHTBLUE;
+	/*background-color: LIGHTBLUE;*/
 }
 
 .game-panel td
@@ -66,10 +66,26 @@
 	border-collapse: collapse;
 	border-style: hidden;
 	padding: 5px;
+	background-image: url(board.jpeg);
+	background-size: 100% , 50%;
+	background-repeat: no-repeat;
 }
 
 
 .game-panel p
 {
 	font-size: 30px;
+}
+
+.game-stat-1
+{
+	width: 10%;
+	float: left;
+
+}
+
+.game-stat-2
+{
+	width: 10%;
+	float: left;
 }
