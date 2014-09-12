@@ -10,4 +10,4 @@ How the game is structured:
 
 1. Separate html, javascript and css files are used for client end.
 2. one node.js file is used for server side.
-3. index.html page is main page
+3. index.html page is main page.
