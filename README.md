@@ -1,4 +1,4 @@
-tictactoe
+tictactoe Readme
 =========
 How to use the game
 
